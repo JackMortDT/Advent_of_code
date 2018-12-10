@@ -19,8 +19,7 @@ class Day1ChronalCalibrationSpec extends Specification{
     given: "A list of numbers"
       String numbers = """+1
 +1
--2
-      """
+-2"""
     when: "The method is executed"
       Integer result = day1.calculate(numbers)
     then: "the result"
@@ -31,8 +30,7 @@ class Day1ChronalCalibrationSpec extends Specification{
     given: "A list of numbers"
       String numbers = """-1
 -2
--3
-      """
+-3"""
     when: "The method is executed"
       Integer result = day1.calculate(numbers)
     then: "the result"
@@ -45,7 +43,48 @@ class Day1ChronalCalibrationSpec extends Specification{
     when: "The method is excuted"
       Integer result = day1.calculate(numbers)
     then: "The result"
+			println "Part 1 "
+			println "--------------------------"
       println result
+			println "--------------------------"
       assert result
   }
+
+	void "Should get the same frequency for the first case"(){
+		given: "A list of numbers"
+			String numbers = """+1
+-1
+"""
+		when: "The method is executed"
+			Integer result = day1.sameFrequency(numbers)
+		then: "The result"
+			assert result == 0
+	}
+
+	void "Should get the same frequency for the second case"(){
+		given: "A list of numbers"
+			String numbers = """+3
++3
++4
+-2
+-4
+"""
+		when: "The method is executed"
+			Integer result = day1.sameFrequency(numbers)
+		then: "The result"
+			assert result
+	}
+
+	void "The result of the exercise"(){
+		given: "A text file"
+      String numbers = new File('Day1.txt').text
+    when: "The method is excuted"
+			Integer result = day1.sameFrequency(numbers)
+    then: "The result"
+			println "Part 2"
+			println "--------------------------"
+      println result
+			println "--------------------------"
+      assert result
+	}
 }
