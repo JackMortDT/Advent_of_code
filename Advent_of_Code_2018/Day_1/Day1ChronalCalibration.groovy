@@ -13,7 +13,6 @@ class Day1ChronalCalibration{
 	}
 
 	Integer iterateListOfNumbers(String numbers){
-		Integer frequency = 0
 		Integer currentNumber = 0
 		List numberList = []
 		Boolean end = false
